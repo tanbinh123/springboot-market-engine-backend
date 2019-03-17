@@ -28,9 +28,9 @@ public class MatchMakerMainController {
 	@Autowired
 	private SellBookServices sellBookServices;
 			
-	@GetMapping("/hello")
+	@GetMapping("/")
 	public String hello() {
-		return "Hello";
+		return "Welcome Home !!! Application is Up and Running..";
 	}
 	
 	
