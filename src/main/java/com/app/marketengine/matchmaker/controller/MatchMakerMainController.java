@@ -1,5 +1,6 @@
 package com.app.marketengine.matchmaker.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.marketengine.matchmaker.beans.Links;
 import com.app.marketengine.matchmaker.beans.Orders;
 import com.app.marketengine.matchmaker.entity.BuyBook;
 import com.app.marketengine.matchmaker.entity.SellBook;
@@ -33,8 +35,18 @@ public class MatchMakerMainController {
 	private MatchingExecutorService matchingService;
 			
 	@GetMapping("/")
-	public String hello() {
-		return "Welcome Home !!! Application is Up and Running..";
+	public String getRoot() {
+		return getAllLinks().toString();
+	}
+	
+	public List<Links> getAllLinks(){
+		List<Links> returnList = new ArrayList<Links>();
+		returnList.add(new Links("/api/v1/orders", "POST", "For Making Book/Sell Orders"));
+		returnList.add(new Links("/api/v1/buyOrders", "GET", "This returns list of buy orders places in the system"));
+		returnList.add(new Links("/api/v1/sellOrders", "GET", "This returns list of sell orders places in the system"));
+		returnList.add(new Links("/api/v1/processOrders", "GET", "This returns list of matches and unmatched orders in the system"));
+		
+		return returnList;		
 	}
 	
 	
