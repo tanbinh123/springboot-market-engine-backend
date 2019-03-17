@@ -14,15 +14,14 @@ public class MatchmakerApplication {
 		SpringApplication.run(MatchmakerApplication.class, args);
 	}
 	
-	@SuppressWarnings("deprecation")
-	@Bean
-	   public WebMvcConfigurer corsConfigurer() {
-	      return new WebMvcConfigurerAdapter() {
-	         @Override
-	         public void addCorsMappings(CorsRegistry registry) {
-	            registry.addMapping("/api/**").allowedOrigins("http://localhost:4200").allowedOrigins("https://market-engine-ui.herokuapp.com");
-	         }
-	      };
-	   }
-
+	
+	  @SuppressWarnings("deprecation")
+	  
+	  @Bean public WebMvcConfigurer corsConfigurer() { return new
+	  WebMvcConfigurerAdapter() {
+	  
+	  @Override public void addCorsMappings(CorsRegistry registry) {
+	  registry.addMapping("/api/**").allowedOrigins(
+	  "https://market-engine-ui.herokuapp.com"); } }; }
+	 
 }

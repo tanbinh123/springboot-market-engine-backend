@@ -16,6 +16,7 @@ import com.app.marketengine.matchmaker.beans.Orders;
 import com.app.marketengine.matchmaker.entity.BuyBook;
 import com.app.marketengine.matchmaker.entity.SellBook;
 import com.app.marketengine.matchmaker.services.BuyBookServices;
+import com.app.marketengine.matchmaker.services.MatchingExecutorService;
 import com.app.marketengine.matchmaker.services.SellBookServices;
 
 @RestController
@@ -27,6 +28,9 @@ public class MatchMakerMainController {
 	
 	@Autowired
 	private SellBookServices sellBookServices;
+	
+	@Autowired
+	private MatchingExecutorService matchingService;
 			
 	@GetMapping("/")
 	public String hello() {
@@ -55,5 +59,11 @@ public class MatchMakerMainController {
 	public List<SellBook> getAllSellBook(){
 		return sellBookServices.getAllSellOrders();
 	}
+	
+	@GetMapping("/api/v1/processOrders")
+	public List<List<Object>> processOrders(){
+		return matchingService.getMatchedOrders(buyBookServices.getAllBuyOrders(), sellBookServices.getAllSellOrders());
+	}
+	
 
 }
