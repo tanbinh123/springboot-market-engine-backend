@@ -77,7 +77,7 @@ public class MatchMakerMainController {
 		return matchingService.processOrder(buyBookServices.getAllBuyOrders(), sellBookServices.getAllSellOrders());
 	}
 	
-	@PostMapping("/api/v1/deleteAllRecords")
+	@GetMapping("/api/v1/deleteAllRecords")
 	public String deleteOrders(){
 		buyBookServices.deleteAllRecords();
 		sellBookServices.deleteAllRecords();
