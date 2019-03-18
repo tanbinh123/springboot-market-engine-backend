@@ -15,7 +15,7 @@ public class SellBook implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "userID", nullable = false)
+	@Column(name = "userID", nullable = false, unique = true)
 	String userID;
 	
 	@Id

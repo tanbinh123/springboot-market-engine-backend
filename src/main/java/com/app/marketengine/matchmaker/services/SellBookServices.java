@@ -27,5 +27,9 @@ public class SellBookServices{
 	public List<SellBook> getAllSellOrders(){
 		return sellRepo.findAll();
 	}
+	
+	public void deleteAllRecords() {
+		sellRepo.deleteAll();
+	}
 
 }

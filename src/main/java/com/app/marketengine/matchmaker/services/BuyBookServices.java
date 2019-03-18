@@ -27,5 +27,9 @@ public class BuyBookServices{
 	public List<BuyBook> getAllBuyOrders(){
 		return buyRepo.findAll();
 	}
+	
+	public void deleteAllRecords() {
+		buyRepo.deleteAll();
+	}
 
 }

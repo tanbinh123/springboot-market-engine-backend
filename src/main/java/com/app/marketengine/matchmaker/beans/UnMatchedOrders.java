@@ -1,4 +1,4 @@
-package com.app.marketengine.matchmaker.entity;
+package com.app.marketengine.matchmaker.beans;
 
 public class UnMatchedOrders {
 	String userID;
@@ -13,12 +13,15 @@ public class UnMatchedOrders {
 	public String getUserID() {
 		return userID;
 	}
+	
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
+	
 	public Integer getPrice() {
 		return price;
 	}
+	
 	public void setPrice(Integer price) {
 		this.price = price;
 	}

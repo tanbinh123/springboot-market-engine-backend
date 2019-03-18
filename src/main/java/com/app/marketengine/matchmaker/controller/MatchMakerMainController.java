@@ -74,8 +74,14 @@ public class MatchMakerMainController {
 	
 	@GetMapping("/api/v1/processOrders")
 	public List<List<Object>> processOrders(){
-		return matchingService.getMatchedOrders(buyBookServices.getAllBuyOrders(), sellBookServices.getAllSellOrders());
+		return matchingService.processOrder(buyBookServices.getAllBuyOrders(), sellBookServices.getAllSellOrders());
 	}
 	
+	@PostMapping("/api/v1/deleteAllRecords")
+	public String deleteOrders(){
+		buyBookServices.deleteAllRecords();
+		sellBookServices.deleteAllRecords();
+		return "Success";
+	}
 
 }
